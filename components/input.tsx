@@ -1,5 +1,4 @@
-import React
-
+import React from 'react';
 
 
 interface InputProps {
@@ -14,11 +13,18 @@ interface InputProps {
 
 
 
-const Input = () => {
+const Input: React.FC<InputProps>  = ({
+    id,
+    onChange,
+    value,
+    label,
+    type
+
+}) => {
     return (
         <div className="relative">
             <input 
-                id="email"
+                id={id}
                 className="
                 block
                 rounded-md
@@ -57,11 +63,12 @@ const Input = () => {
                 peer-focus:-translate-y-3
             "
             
-            htmlFor="email">
+            htmlFor={id}>
                 Email
             </label>    
         </div>
-    )
-}
+    
+    )}
+
 
 export default Input;
