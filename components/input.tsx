@@ -10,9 +10,6 @@ interface InputProps {
 }
 
 
-
-
-
 const Input: React.FC<InputProps>  = ({
     id,
     onChange,
@@ -24,6 +21,9 @@ const Input: React.FC<InputProps>  = ({
     return (
         <div className="relative">
             <input 
+                onChange={onChange}
+                type={type}
+                value={value}
                 id={id}
                 className="
                 block
