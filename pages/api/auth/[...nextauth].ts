@@ -13,16 +13,14 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
 export default NextAuth ({
   providers: [
-    GithubProviders({
+    GithubProvider({
       clientId: process.env.GITHUB_ID || '',
       clientSecret: process.env.GITHUB_SECRET || ''
     }),
-    GoogleProviders({
+    GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || ''
     }),
-  ]
-  providers: [
     Credentials ({
       id: 'credentials',
       name: 'Credentials',
