@@ -2,7 +2,7 @@
 import { NextPageContext } from "next"
 import { getSession, signOut } from "next-auth/react"
 
-import useCurrentUser from "@/hooks/useCurrentUser";
+import useCurrentUser from "../hooks/useCurrentUser";
 
 //protecting home routes
 export async function getServerSideProps(context: NextPageContext) { //client side
