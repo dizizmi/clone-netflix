@@ -4,6 +4,8 @@ import { getSession, signOut } from "next-auth/react"
 
 import useCurrentUser from "../hooks/useCurrentUser";
 
+import Navbar from "../components/Navbar"
+
 //protecting home routes
 export async function getServerSideProps(context: NextPageContext) { //client side
   const session = await getSession(context);
@@ -27,9 +29,7 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="text-4xl text-green-500"> Netflix Clone</h1>
-      <p className="text-white">Logged in as: { user?.email} </p>
-      <button className="h-10 w-full bg-white" onClick={() => signOut()}>Logout!</button>
+      <Navbar />
     </>
   )
 }
