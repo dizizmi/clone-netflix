@@ -1,3 +1,5 @@
+import NavbarItem from './NavbarItem';
+
 const Navbar = () => {
     return (
         <nav className="w-full fixed z-40">
@@ -15,22 +17,27 @@ const Navbar = () => {
                     bg-opacity-90
                 "
             >
-                <div>
-                    <img className="h-4 lg:h-7" src="/images/logo.png" alt="Logo" />
-                    <div 
-                        className="
-                            flex-row
-                            ml-8
-                            gap-7
-                            hidden
-                            lg-flex
-                        "
-                    >
-                        <NavbarItem />
-                    </div>
-                </div>
+                <img className="h-4 lg:h-7" src="/images/logo.png" alt="Logo" />
+                <div 
+                    className="
+                        flex-row
+                        ml-8
+                        gap-7
+                        hidden
+                        lg:flex
+                    "
+                > 
+                    <NavbarItem label="Home"/>
+                    <NavbarItem label="Series"/>
+                    <NavbarItem label="Films"/>
+                    <NavbarItem label="New & Popular"/>
+                    <NavbarItem label="My List"/>
+                    <NavbarItem label="Browse by languages"/>
+
+
             </div>
-        </nav>
+        </div>
+    </nav>
     )
 }
 
