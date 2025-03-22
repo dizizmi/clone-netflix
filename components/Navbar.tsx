@@ -16,17 +16,17 @@ const Navbar = () => {
     const [showBackground, setShowBackground] = useState(false);
 
     useEffect(() => {
-        const handkeScroll = () => {
+        const handleScroll = () => {
             if (window.scrollY > TOP_OFFSET) {
                 setShowBackground(true);
             } else {
                 setShowBackground(false);
             }
         }
-        window.addEventListener('scroll', handkeScroll);
+        window.addEventListener('scroll', handleScroll);
 
         return () => { //remove unknown functions
-            window.removeEventListener('scroll', handkeScroll);
+            window.removeEventListener('scroll', handleScroll);
         }
 
     }, []);
@@ -41,9 +41,9 @@ const Navbar = () => {
 
     
     return (
-        <nav className="w-full fixed z-40">
+        <nav className= "w-full fixed z-40">
             <div
-                className="
+                className={` 
                     px-4
                     md:px-16
                     py-6
@@ -52,9 +52,8 @@ const Navbar = () => {
                     items-center
                     transition
                     duration-500
-                    bg-zinc-900
-                    bg-opacity-90
-                "
+                    ${showBackground ? 'bg-zinc-900 bg-opacity-90' : '' }
+                `} //backticks to allow for multiple lines
             >
                 <img className="h-4 lg:h-7" src="/images/logo.png" alt="Logo" />
                 <div 
