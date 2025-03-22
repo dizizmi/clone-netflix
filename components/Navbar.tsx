@@ -1,16 +1,35 @@
 
 
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { BsChevronDown, BsSearch, BsBell } from 'react-icons/bs';
 
 import NavbarItem from './NavbarItem';
 import MobileMenu from './MobileMenu';
 import AccountMenu from './AccountMenu';
-import { useCallback } from 'react';
+
+
+const TOP_OFFSET = 66; //the amt stop them from scrolling down
 
 const Navbar = () => {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const [showAccountMenu, setShowAccountMenu] = useState(false);
+    const [showBackground, setShowBackground] = useState(false);
+
+    useEffect(() => {
+        const handkeScroll = () => {
+            if (window.scrollY > TOP_OFFSET) {
+                setShowBackground(true);
+            } else {
+                setShowBackground(false);
+            }
+        }
+        window.addEventListener('scroll', handkeScroll);
+
+        return () => { //remove unknown functions
+            window.removeEventListener('scroll', handkeScroll);
+        }
+
+    }, []);
 
     const toggleMobileMenu = useCallback(() => {
         setShowMobileMenu((current) => !current);
