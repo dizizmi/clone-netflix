@@ -56,7 +56,7 @@ const Navbar = () => {
                 </div>
                 <div onClick= {toggleMobileMenu }className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative">
                     <p className="text-white text-sm">Browse</p>
-                    <BsChevronDown className="text-white transition" />
+                    <BsChevronDown className={`text-white transition ${showMobileMenu ? 'rotate-180' : 'rotate-0'}`} />
                     <MobileMenu visible= {showMobileMenu}/>
                 </div>
                 <div className="flex flex-row items-center gap-7 ml-auto">
